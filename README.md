@@ -16,5 +16,5 @@ $ npm start
 
 ```
 $ npm i mk-tools -g
-$ mk clone mk-app-bar-graph apps/tree-table
+$ mk clone mk-app-tree-table apps/tree-table
 ```
