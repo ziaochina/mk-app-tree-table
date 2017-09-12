@@ -2,10 +2,14 @@ import { config, start, componentFactory } from 'mk-meta-engine'
 import * as mkComponents from 'mk-component'
 import myConfig  from './config'
 
+import mk_app_tree_table_detail from './apps/mk-app-tree-table/apps/mk-app-tree-table-detail/index.js'
+import mk_app_tree_table_type from './apps/mk-app-tree-table/apps/mk-app-tree-table-type/index.js'
 import mk_app_tree_table from './apps/mk-app-tree-table/index.js'
 
 const apps = {
 		
+	[mk_app_tree_table_detail.name]: mk_app_tree_table_detail,	
+	[mk_app_tree_table_type.name]: mk_app_tree_table_type,	
 	[mk_app_tree_table.name]: mk_app_tree_table,
 }
 
