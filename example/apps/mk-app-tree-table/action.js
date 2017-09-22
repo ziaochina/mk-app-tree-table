@@ -70,7 +70,7 @@ class action {
                     component: 'Tree.TreeNode',
                     key: item.id,
                     title:item.name,
-                    children: this.loopTreeChildren(item.children)
+                    children: this.loopTreeChildrenInternal(item.children)
                 }
             }
 

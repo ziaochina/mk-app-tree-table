@@ -60,14 +60,44 @@ class action {
         this.load(pagination, filter)
     }
 
-    loopTreeChildren = data => {
+    loopTreeChildrenInternal = data => {
         if (!data) return null
+
+        return data.map((item) => {
+            if (item.children && item.children.length) {
+                return {
+                    name: item.id,
+                    component: 'Tree.TreeNode',
+                    key: item.id,
+                    title:item.name,
+                    children: this.loopTreeChildrenInternal(item.children)
+                }
+            }
+
+            return {
+                name: item.id,
+                component: 'Tree.TreeNode',
+                key: item.id,
+                title:item.name
+            }
+        })
+
+        /*
         return data.map((item) => {
             if (item.children && item.children.length) {
                 return <Tree.TreeNode key={item.id} title={item.name}>{this.loopTreeChildren(item.children)}</Tree.TreeNode>
             }
             return <Tree.TreeNode key={item.id} title={item.name} />
-        })
+        })*/
+    }
+
+    loopTreeChildren = data => {
+        var ret = {
+            _isMeta : true,
+            value: this.loopTreeChildrenInternal(data)
+        }
+        debugger
+        return ret;
     }
 
 
